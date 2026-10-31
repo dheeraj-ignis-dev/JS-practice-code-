@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Events</h1>
+    <h2>Adding and Removing Events</h2>
+
+    <button id="add">Add</button>
+    <button id="remove">Remove</button>
+    <button id="test">Test click</button>
+    <p id="demo"></p>
+    <h1 onclick="changeText(this)"> click here for more </h1>
+    <script>
+        const test = document.getElementById("test");
+        const remove = document.getElementById("remove");
+        const add = document.getElementById("add");
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML += "Hello!";
+        }
+
+        // Let add listen for click
+        add.addEventListener("click", function () {
+            // Let test listen for click
+            test.addEventListener("click", myFunction);
+        });
+
+        // Let remove listen for click
+        remove.addEventListener("click", function () {
+            // Prevent test listen for click
+            test.removeEventListener("click", myFunction);
+        });
+
+        function changeText(id){
+            id.innerHTML = "OOooops";
+
+        }
+    </script>
+
+</body>
+
+</html>
